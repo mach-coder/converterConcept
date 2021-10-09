@@ -1,4 +1,4 @@
-const   socket = io.connect('http://localhost:3000')
+const   socket = io.connect('ws://node.plingoo.xyz:3000')
         mean = document.querySelector('.mean'),
         replacement = document.querySelector('.replacement'),
         message = document.getElementById('message');
