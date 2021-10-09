@@ -1,4 +1,4 @@
-const   socket = io.connect('ws://node.plingoo.xyz')
+const   socket = io.connect('')
         mean = document.querySelector('.mean'),
         replacement = document.querySelector('.replacement'),
         message = document.getElementById('message');
