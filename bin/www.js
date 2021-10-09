@@ -32,11 +32,8 @@ server.on('error', onError);
 server.on('listening', onListening);
 var io = socket(server);
 io.on('connection', function(socket){
-  console.log('made socket connection', socket.id);
-
   // Handle converting event
    socket.on('converting', function(data){
-       console.log(data);
        io.sockets.emit('converting', converter.converter('ar', data.q));
    });
 

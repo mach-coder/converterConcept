@@ -1,9 +1,9 @@
 {
-  "name": "convertcharacter",
+  "name": "do-you-mean",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon bin/www"
+    "start": "nodemon app.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -11,7 +11,6 @@
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "express-handlebars": "^5.3.4",
-    "handlebars": "^4.7.7",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.13",
