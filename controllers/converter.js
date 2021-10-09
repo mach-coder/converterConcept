@@ -1,5 +1,5 @@
 let arMapper = function (value){
-    let a = {
+    let ar = {
         a: "ش",
         b: "ﻻ",
         c: "ؤ",
@@ -35,13 +35,36 @@ let arMapper = function (value){
         ",": "و",
         ".": "ز",
         "\/": "ظ",
+        "ش": "a",
+        "ﻻ": "b",
+        "ؤ": "c",
+        "ي": "d",
+        "ث": "e",
+        "ب": "f",
+        "ل": "g",
+        "ا": "h",
+        "ه": "i",
+        "ت": "j",
+        "ن": "k",
+        "م": "l",
+        "ة": "m",
+        "ى": "n",
+        "خ": "o",
+        "ح": "p",
+        "ض": "q",
+        "ق": "r",
+        "س": "s",
+        "ف": "t",
+        "ع": "u",
+        "ر": "v",
+        "ص": "w",
+        "ء": "x",
+        "غ": "y",
+        "ئ": "z",
 
     };
-    return a[value]
+    return ar[value]
 }
-let converter =  function (lang, value) {
-        return value.split('').map(x => arMapper(x)).join('')
-    };
-module.exports = {
-    converter,
+module.exports = { 
+    converter:  (lang, value) => value.split('').map(x => arMapper(x)).join('') 
 }

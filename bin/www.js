@@ -6,7 +6,9 @@
 
 var app = require('../app');
 var debug = require('debug')('convertcharacter:server');
-var http = require('http');
+var http = require('http'),
+socket = require('socket.io');
+let converter = require('../controllers/converter')
 
 /**
  * Get port from environment and store in Express.
@@ -28,6 +30,17 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+var io = socket(server);
+io.on('connection', function(socket){
+  console.log('made socket connection', socket.id);
+
+  // Handle converting event
+   socket.on('converting', function(data){
+       console.log(data);
+       io.sockets.emit('converting', converter.converter('ar', data.q));
+   });
+
+});
 
 /**
  * Normalize a port into a number, string, or false.
@@ -35,18 +48,7 @@ server.on('listening', onListening);
 
 function normalizePort(val) {
   var port = parseInt(val, 10);
-
-  if (isNaN(port)) {
-    // named pipe
-    return val;
-  }
-
-  if (port >= 0) {
-    // port number
-    return port;
-  }
-
-  return false;
+  return (isNaN(port)) ? val : ((port >= 0) ? port: false);
 }
 
 /**
