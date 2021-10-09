@@ -42,7 +42,7 @@ server.listen(3000, () => {
   console.log('app start at http://127.0.0.1:3000');
 })
 // var io = socket(server);
-const io = new socket.Server(server, { /* options */ });
+const io = new socket.Server(server, { cors: { origin: "*" }  });
 
 io.on('connection', function(socket){
   console.log('made socket connection', socket.id);
